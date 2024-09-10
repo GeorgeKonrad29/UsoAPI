@@ -1,7 +1,7 @@
 def obtencionDeFiltros():
     entradasUsuario = ""
     listaDeFiltros = {}
-    while entradasUsuario != "f":
+    while entradasUsuario.lower() != "f":
         entradasUsuario = str(input("Por favor escriba que desea agregar al filtro o solo la inicial:\n"
                                     "departamento\n"
                                     "municipio\n"
@@ -14,17 +14,18 @@ def obtencionDeFiltros():
 
 
 def escribirEnListaFiltros(entradasUsuario, listaDeFiltros):
-    if entradasUsuario in "departamento":
+    if entradasUsuario.lower() in "departamento":
         departamentoIngresado = str(input("Por favor escriba el departamento:\n"))
         departamentoIngresado = departamentoIngresado.upper()
         listaDeFiltros['departamento'] = departamentoIngresado
-    elif entradasUsuario in "municipio":
+    elif entradasUsuario.lower() in "municipio":
         municipioIngresado = str(input("Por favor escriba el municipio:\n"))
         municipioIngresado = municipioIngresado.upper()
         listaDeFiltros['municipio'] = municipioIngresado
-    elif entradasUsuario in "cultivo":
+    elif entradasUsuario.lower() in "cultivo":
         cultivoIngresado = str(input("Por favor escriba el cultivo:\n"))
-        cultivoIngresado = cultivoIngresado.upper()
+        cultivoIngresado= cultivoIngresado[0].upper()+cultivoIngresado[1:].lower()
+
         listaDeFiltros['cultivo'] = cultivoIngresado
     elif entradasUsuario == "f":
         print("\n")
